@@ -2,6 +2,7 @@ class Game {
   constructor(){
 
   }
+  
 
   getState(){
     var gameStateRef  = database.ref('gameState');
@@ -14,6 +15,7 @@ class Game {
   update(state){
     database.ref('/').update({
       gameState: state
+    
     });
   }
 
@@ -27,6 +29,7 @@ class Game {
       }
       form = new Form()
       form.display();
+      
     }
 
     car1 = createSprite(100,200);
@@ -70,6 +73,9 @@ class Game {
         cars[index-1].y = y;
 
         if (index === player.index){
+          strokeWeight(7);
+          stroke("purple");
+          ellipse(x,y,100,100);
           cars[index - 1].shapeColor = "red";
           camera.position.x = displayWidth/2;
           camera.position.y = cars[index-1].y;
